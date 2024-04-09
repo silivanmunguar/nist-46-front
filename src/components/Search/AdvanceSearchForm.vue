@@ -9,15 +9,13 @@
       title="Advance Search Tips"
       class="text-left"
     >
-      All the fields below support multiple entries, you can input one or more entries split by: <b>,</b>
+      All the fields below support multiple entries, you can input one or more
+      entries split by: <b>,</b>
       For example: Fe, H, Ca
     </v-alert>
 
     <v-row class="pt-8">
-      <v-col
-        cols="12"
-        md="12"
-      >
+      <v-col cols="12" md="12">
         <v-text-field
           label="Categories"
           prepend-icon="mdi-list-box-outline"
@@ -28,10 +26,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="12"
-      >
+      <v-col cols="12" md="12">
         <v-text-field
           label="Ligands"
           prepend-icon="mdi-chemical-weapon"
@@ -42,10 +37,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="12"
-      >
+      <v-col cols="12" md="12">
         <v-text-field
           label="Chemicals"
           prepend-icon="mdi-bottle-tonic-skull-outline"
@@ -56,10 +48,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="4"
-      >
+      <v-col cols="12" md="4">
         <v-text-field
           label="Metals"
           prepend-icon="mdi-soldering-iron"
@@ -70,10 +59,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="4"
-      >
+      <v-col cols="12" md="4">
         <v-text-field
           label="Metal Charge"
           prepend-icon="mdi-flash"
@@ -84,10 +70,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col
-        cols="12"
-        md="4"
-      >
+      <v-col cols="12" md="4">
         <v-text-field
           label="Ligand Charge"
           prepend-icon="mdi-lightning-bolt-outline"
@@ -99,75 +82,82 @@
       </v-col>
     </v-row>
 
-    <v-btn type="submit" block class="mt-2" color="primary" @click="searchLigands">Submit</v-btn>
+    <v-btn
+      type="submit"
+      block
+      class="mt-2"
+      color="primary"
+      @click="searchLigands"
+      >Submit</v-btn
+    >
   </v-container>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "AdvanceSearchForm",
   props: {
     isLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     ligands: {
       type: String,
-      default: ''
+      default: "",
     },
     metals: {
       type: String,
-      default: ''
+      default: "",
     },
     categories: {
       type: String,
-      default: ''
+      default: "",
     },
     ligandCharges: {
       type: String,
-      default: ''
+      default: "",
     },
     metalCharges: {
       type: String,
-      default: ''
+      default: "",
     },
     chemicals: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   data: () => ({
-    ligandsValue: '',
-    metalsValue: '',
-    categoriesValue: '',
-    ligandChargesValue: '',
-    metalChargesValue: '',
-    chemicalsValue: ''
+    ligandsValue: "",
+    metalsValue: "",
+    categoriesValue: "",
+    ligandChargesValue: "",
+    metalChargesValue: "",
+    chemicalsValue: "",
   }),
   methods: {
-    searchLigands(){
-      this.$emit('onSearch')
+    searchLigands() {
+      this.$emit("onSearch");
     },
-    onLigandsUpdate(){
-      this.$emit('update:ligands', this.ligandsValue);
+    onLigandsUpdate() {
+      this.$emit("update:ligands", this.ligandsValue);
     },
-    onMetalsUpdate(){
-      this.$emit('update:metals', this.metalsValue);
+    onMetalsUpdate() {
+      this.$emit("update:metals", this.metalsValue);
     },
-    onCategoriesUpdate(){
-      this.$emit('update:categories', this.categoriesValue);
+    onCategoriesUpdate() {
+      this.$emit("update:categories", this.categoriesValue);
     },
-    onLigandChargesUpdate(){
-      this.$emit('update:ligandCharges', this.ligandChargesValue);
+    onLigandChargesUpdate() {
+      this.$emit("update:ligandCharges", this.ligandChargesValue);
     },
-    onMetalChargesUpdate(){
-      this.$emit('update:metalCharges', this.metalChargesValue);
+    onMetalChargesUpdate() {
+      this.$emit("update:metalCharges", this.metalChargesValue);
     },
-    onChemicalsUpdate(){
-      this.$emit('update:chemicals', this.chemicalsValue);
-    }
-  }
-})
+    onChemicalsUpdate() {
+      this.$emit("update:chemicals", this.chemicalsValue);
+    },
+  },
+});
 </script>
